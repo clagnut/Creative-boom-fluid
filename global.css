@@ -79,20 +79,10 @@ img {
   --space-xs: clamp(0.8125rem, 0.7796rem + 0.1645vi, 0.9375rem);
   --space-s: clamp(1.0625rem, 1.0132rem + 0.2467vi, 1.25rem);
   --space-m: clamp(1.625rem, 1.5592rem + 0.3289vi, 1.875rem);
-  --space-l: clamp(2.125rem, 2.0263rem + 0.4934vi, 2.5rem);
   --space-xl: clamp(3.1875rem, 3.0395rem + 0.7401vi, 3.75rem);
-  --space-2xl: clamp(4.25rem, 4.0526rem + 0.9868vi, 5rem);
-  --space-3xl: clamp(6.375rem, 6.0789rem + 1.4803vi, 7.5rem);
 
   /* One-up pairs */
-  --space-3xs-2xs: clamp(0.25rem, 0.1513rem + 0.4934vi, 0.625rem);
-  --space-2xs-xs: clamp(0.5625rem, 0.4638rem + 0.4934vi, 0.9375rem);
-  --space-xs-s: clamp(0.8125rem, 0.6974rem + 0.5757vi, 1.25rem);
   --space-s-m: clamp(1.0625rem, 0.8487rem + 1.0691vi, 1.875rem);
-  --space-m-l: clamp(1.625rem, 1.3947rem + 1.1513vi, 2.5rem);
-  --space-l-xl: clamp(2.125rem, 1.6974rem + 2.1382vi, 3.75rem);
-  --space-xl-2xl: clamp(3.1875rem, 2.7105rem + 2.3849vi, 5rem);
-  --space-2xl-3xl: clamp(4.25rem, 3.3947rem + 4.2763vi, 7.5rem);
 
   /* Custom pairs */
   --space-xs-m: clamp(0.8125rem, 0.5329rem + 1.398vi, 1.875rem);

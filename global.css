@@ -50,12 +50,6 @@ body {
   text-wrap: pretty;
 }
 
-/* Balance text wrapping on headings
-h1, h2,
-h3, h4 {
-  text-wrap: balance;
-}
- */
 img {
 	max-width: 100%;
 }
@@ -317,6 +311,7 @@ section p:first-of-type::first-letter {
 	font-size: 4.25em;
 	float: left;
 	line-height: 1em;
+	line-height: 1cap;
 	margin-left: -0.1em;
 	padding-right: 0.05em;
 }

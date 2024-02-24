@@ -1,0 +1,380 @@
+/* @group Reset */
+/* Subset of https://andy-bell.co.uk/a-more-modern-css-reset/ */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation in iPhones */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+address,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  font-style: normal;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+}
+
+/* Improve text wrapping */
+body {
+  text-wrap: pretty;
+}
+
+/* Balance text wrapping on headings
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+ */
+img {
+	max-width: 100%;
+}
+
+/* @end */
+
+/* @group Utopia */
+
+/* @link https://utopia.fyi/type/calculator?c=320,17,1.2,1536,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,xs-m&g=s,l,xl,12 */
+
+:root {
+  --step--2: clamp(0.7378rem, 0.7215rem + 0.0818vi, 0.8rem);
+  --step--1: clamp(0.8854rem, 0.8553rem + 0.1508vi, 1rem);
+  --step-0: clamp(1.0625rem, 1.0132rem + 0.2467vi, 1.25rem);
+  --step-1: clamp(1.275rem, 1.1993rem + 0.3783vi, 1.5625rem);
+  --step-2: clamp(1.53rem, 1.4187rem + 0.5567vi, 1.9531rem);
+  --step-3: clamp(1.836rem, 1.6767rem + 0.7966vi, 2.4414rem);
+  --step-4: clamp(2.2032rem, 1.9799rem + 1.1165vi, 3.0518rem);
+  --step-5: clamp(2.6438rem, 2.3357rem + 1.5406vi, 3.8147rem);
+}
+
+/* @link https://utopia.fyi/space/calculator?c=320,17,1.2,1536,20,1.333,5,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,xs-m|xs-2xl|s-l|xl-3xl|s-xl&g=s,l,xl,12 */
+
+:root {
+  --space-3xs: clamp(0.25rem, 0.2336rem + 0.0822vi, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5461rem + 0.0822vi, 0.625rem);
+  --space-xs: clamp(0.8125rem, 0.7796rem + 0.1645vi, 0.9375rem);
+  --space-s: clamp(1.0625rem, 1.0132rem + 0.2467vi, 1.25rem);
+  --space-m: clamp(1.625rem, 1.5592rem + 0.3289vi, 1.875rem);
+  --space-l: clamp(2.125rem, 2.0263rem + 0.4934vi, 2.5rem);
+  --space-xl: clamp(3.1875rem, 3.0395rem + 0.7401vi, 3.75rem);
+  --space-2xl: clamp(4.25rem, 4.0526rem + 0.9868vi, 5rem);
+  --space-3xl: clamp(6.375rem, 6.0789rem + 1.4803vi, 7.5rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.25rem, 0.1513rem + 0.4934vi, 0.625rem);
+  --space-2xs-xs: clamp(0.5625rem, 0.4638rem + 0.4934vi, 0.9375rem);
+  --space-xs-s: clamp(0.8125rem, 0.6974rem + 0.5757vi, 1.25rem);
+  --space-s-m: clamp(1.0625rem, 0.8487rem + 1.0691vi, 1.875rem);
+  --space-m-l: clamp(1.625rem, 1.3947rem + 1.1513vi, 2.5rem);
+  --space-l-xl: clamp(2.125rem, 1.6974rem + 2.1382vi, 3.75rem);
+  --space-xl-2xl: clamp(3.1875rem, 2.7105rem + 2.3849vi, 5rem);
+  --space-2xl-3xl: clamp(4.25rem, 3.3947rem + 4.2763vi, 7.5rem);
+
+  /* Custom pairs */
+  --space-xs-m: clamp(0.8125rem, 0.5329rem + 1.398vi, 1.875rem);
+  --space-xs-2xl: clamp(0.8125rem, -0.2895rem + 5.5099vi, 5rem);
+  --space-s-l: clamp(1.0625rem, 0.6842rem + 1.8914vi, 2.5rem);
+  --space-xl-3xl: clamp(3.1875rem, 2.0526rem + 5.6743vi, 7.5rem);
+  --space-s-xl: clamp(1.0625rem, 0.3553rem + 3.5362vi, 3.75rem);
+}
+
+/* @end */
+
+/* @group Webfont */
+
+@font-face {
+    font-family: "ABC Diatype";
+    src: url("ABCDiatype-Regular.woff2") format("woff2");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "ABC Diatype";
+    src: url("ABCDiatype-Bold.woff2") format("woff2");
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Roobert";
+    src: url("Roobert-Medium.woff2") format("woff2");
+    font-weight: 500;
+}
+
+/* @end */
+
+body {
+	background: #fff;
+	color: #000;
+	font-family: "ABC Diatype", ui-sans-serif, system-ui, -apple-system, sans-serif;
+	font-size: var(--step-0);
+	line-height: 1.5;
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+a {
+	color: inherit;
+}
+
+.masthead, .header-contents, .belowheader {
+	max-width: calc(var(--step-0) * 77);
+	padding-inline: var(--space-xs-2xl);
+	margin-inline: auto;
+}
+
+h1, h2, section {
+	max-width: calc(var(--step-0) * 46);
+}
+
+/* @group nav */
+
+.nav-utility {
+	display: flex;
+	justify-content: space-between;
+	padding-top: var(--space-m);
+	padding-bottom: var(--space-s-l);
+}
+
+.nav-utility ul {
+	display: flex;
+	font-size: var(--step--1);
+}
+
+.nav-utility li + li {
+	margin-left: var(--space-xs-m);
+}
+
+.svg-logo {
+	height: 1.5em;
+}
+
+.svg-search {
+	height: 1.3em;
+}
+
+.svg-burger {
+	height: 1.5em;
+}
+
+.nav-global {
+	padding-bottom: var(--space-s);
+}
+
+.nav-global ul {
+	display: flex;
+	text-transform:uppercase;
+	font-size: var(--step--1);
+	font-weight: bold;
+}
+
+.nav-global li + li {
+	margin-left: var(--space-s-m);
+}
+
+.chevron {
+	width: 0.6em;
+	padding-bottom: 0.15em;
+}
+
+nav .selected {
+	text-decoration:underline;
+	text-decoration-thickness: max(2px,0.125em);
+	text-underline-offset: max(2px,0.125em);
+}
+
+@media (max-width:54.5rem) {
+	.nav-global {
+		display: none;
+	}
+}
+
+@media (max-width:27rem) {
+	.nav-subscribe {
+		display: none;
+	}
+}
+
+/* @end */
+
+/* @group Header */
+
+article header {
+	background: rgb(251, 247, 239);
+	color: #000;
+	padding-block: var(--space-m);
+}
+
+.tags {
+	display: flex;
+	text-transform:uppercase;
+	font-size: var(--step--2);
+	font-weight: bold;	
+}
+
+.tags li {
+	border:1px solid #000;
+	border-radius: 1em;
+	line-height: 1;
+	padding: var(--space-3xs) var(--space-2xs);
+	padding-top: calc(0.2em + var(--space-3xs));
+}
+
+.tags li + li {
+	margin-inline-start: var(--space-2xs);
+}
+
+h1, h2, h3, h4 {
+	font-family: "Roobert", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-weight: 500;
+}
+
+h1 {
+	font-size: var(--step-5);
+	line-height: 1.1;
+	margin-block-start:var(--space-m);
+}
+
+h2 {
+	font-size: var(--step-1);
+	line-height: 1.25;
+	margin-block:var(--space-s);
+}
+
+.byline {
+	font-size: var(--step--1);	
+	margin-block-end: var(--space-xs);
+}
+
+date {
+	display: block;
+	font-size: var(--step--1);	
+	margin-block-end: var(--space-xs);	
+}
+
+/* @end */
+
+
+.belowheader {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s-xl);
+}
+
+.belowheader > :last-child {
+  flex-basis: calc(var(--space-xl-3xl) * 3); 
+  flex-grow: 1;
+}
+
+.belowheader > :first-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 63.6%;
+}
+
+/* @group article (section) */
+
+section {
+	padding-block-start: var(--space-xl);
+}
+
+section p {
+	margin-block-end: var(--space-s);
+}
+
+section p:first-of-type::first-letter {
+	font-family: "Roobert", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-weight: 500;
+	font-size: 4.25em;
+	float: left;
+	line-height: 1em;
+	margin-left: -0.1em;
+	padding-right: 0.05em;
+}
+
+section figure {
+	margin-block: var(--space-xl);	
+}
+
+hr {
+	border: 0;
+	border-bottom: 1px solid #000;
+	margin: 0;
+	margin-block-start: var(--space-xl);
+}
+
+/* @end */
+
+/* @group aside (editors picks) */
+
+aside {
+	padding-block: var(--space-xl);
+}
+
+h3 {
+	margin-block-end: var(--space-m);
+}
+
+.list-cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-s);
+}
+
+.card {
+	flex-basis: calc(var(--space-s)*17); 
+	flex-grow: 1;
+	border-top: 1px solid #000;
+	padding-block-start: var(--space-m);
+	margin-block-start: var(--space-2xs);
+	font-size: var(--step--1);
+	display: flex;
+	flex-wrap: nowrap;
+	gap: var(--space-s);
+	line-height: 1.375;
+}
+
+.card figure {
+	flex-basis: 33.333%;
+	flex-grow: 1;
+}
+
+.card div {
+	flex-basis: 0;
+	flex-grow: 999;
+}
+
+.card h4 {
+	margin-block: var(--space-xs);
+}
+
+/* @end */

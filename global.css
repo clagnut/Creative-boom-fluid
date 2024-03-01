@@ -92,6 +92,8 @@ img {
   --space-s-xl: clamp(1.0625rem, 0.3553rem + 3.5362vi, 3.75rem);
 }
 
+/* @end */
+
 /* @group Webfont */
 
 @font-face {
@@ -128,7 +130,7 @@ a {
 	color: inherit;
 }
 
-.masthead, .header-contents, .belowheader {
+.masthead, .article-header, .article-body {
 	max-width: calc(var(--step-0) * 77);
 	padding-inline: var(--space-xs-2xl);
 	margin-inline: auto;
@@ -143,8 +145,8 @@ h1, h2, section {
 .nav-utility {
 	display: flex;
 	justify-content: space-between;
-	padding-top: var(--space-m);
-	padding-bottom: var(--space-s-l);
+	padding-block-start: var(--space-m);
+	padding-block-end: var(--space-s-l);
 }
 
 .nav-utility ul {
@@ -153,7 +155,7 @@ h1, h2, section {
 }
 
 .nav-utility li + li {
-	margin-left: var(--space-xs-m);
+	margin-inline-start: var(--space-xs-m);
 }
 
 .svg-logo {
@@ -169,7 +171,7 @@ h1, h2, section {
 }
 
 .nav-global {
-	padding-bottom: var(--space-s);
+	padding-block-end: var(--space-s);
 }
 
 .nav-global ul {
@@ -180,12 +182,12 @@ h1, h2, section {
 }
 
 .nav-global li + li {
-	margin-left: var(--space-s-m);
+	margin-inline-start: var(--space-s-m);
 }
 
 .chevron {
 	width: 0.6em;
-	padding-bottom: 0.15em;
+	padding-block-end: 0.15em;
 }
 
 nav .selected {
@@ -227,8 +229,9 @@ article header {
 	border:1px solid #000;
 	border-radius: 1em;
 	line-height: 1;
-	padding: var(--space-3xs) var(--space-2xs);
-	padding-top: calc(0.2em + var(--space-3xs));
+	padding-inline: var(--space-2xs);
+	padding-block-start: 0.65em;
+	padding-block-end: 0.6em;
 }
 
 .tags li + li {
@@ -266,24 +269,25 @@ date {
 /* @end */
 
 
-.belowheader {
+.article-body {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-s-xl);
 }
 
-.belowheader > :last-child {
-  flex-basis: calc(var(--space-xl-3xl) * 3); 
+.article-body > :last-child {
+  flex-basis: calc(var(--space-xl-3xl) * 4); 
   flex-grow: 1;
 }
 
-.belowheader > :first-child {
+.article-body > :first-child {
   flex-basis: 0;
   flex-grow: 999;
   min-inline-size: 63.6%;
 }
 
-/* @group article (section) */
+
+/* @group article text */
 
 section {
 	padding-block-start: var(--space-xl);
@@ -300,8 +304,8 @@ section p:first-of-type::first-letter {
 	float: left;
 	line-height: 1em;
 	line-height: 1cap;
-	margin-left: -0.1em;
-	padding-right: 0.05em;
+	margin-inline-start: -0.1em;
+	padding-inline-end: 0.05em;
 }
 
 section figure {
@@ -324,6 +328,7 @@ aside {
 }
 
 h3 {
+	font-size: var(--step-1);	
 	margin-block-end: var(--space-m);
 }
 
@@ -334,16 +339,16 @@ h3 {
 }
 
 .card {
-	flex-basis: calc(var(--space-s)*17); 
+	flex-basis: calc(var(--space-s)*18); 
 	flex-grow: 1;
 	border-top: 1px solid #000;
 	padding-block-start: var(--space-m);
 	margin-block-start: var(--space-2xs);
 	font-size: var(--step--1);
-	display: flex;
-	flex-wrap: nowrap;
-	gap: var(--space-s);
 	line-height: 1.375;
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-s);
 }
 
 .card figure {

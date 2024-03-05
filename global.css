@@ -54,6 +54,10 @@ img {
 	max-width: 100%;
 }
 
+a {
+	color: inherit;
+}
+
 /* @end */
 
 /* @group Utopia */
@@ -116,18 +120,50 @@ img {
 
 /* @end */
 
+/* @group utilities */
+/* Thanks https://every-layout.dev/ */
+
+.with-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sidebar-gap);
+}
+
+.sidebar {
+  --sidebar-side_minwidth: calc(var(--step-0) * 20);
+  flex-basis: var(--sidebar-side_minwidth);
+  flex-grow: 1;
+}
+
+.not-sidebar {
+  --sidebar-notside_minwidth: 50%;
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: var(--sidebar-notside_minwidth);
+}
+
+.grid {
+  --grid-gap: var(--space-s);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--grid-gap);
+}
+
+.grid > * {
+  --grid-width: calc(var(--step-0) * 15);
+  flex: 1 1 var(--grid-width);
+}
+
+/* @end */
+
 body {
 	background: #fff;
 	color: #000;
 	font-family: "ABC Diatype", ui-sans-serif, system-ui, -apple-system, sans-serif;
 	font-size: var(--step-0);
 	line-height: 1.5;
-	-webkit-font-smoothing:antialiased;
+	-webkit-font-smoothing:antialiased; /* wouldn't normally do this but without it the font becomes far too bold and doesn't match the CB design */
 	-moz-osx-font-smoothing:grayscale;
-}
-
-a {
-	color: inherit;
 }
 
 .masthead, .article-header, .article-body {
@@ -268,22 +304,16 @@ date {
 
 /* @end */
 
-
 .article-body {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-s-xl);
+  --sidebar-gap: var(--space-s-xl);
 }
 
-.article-body > :last-child {
-  flex-basis: calc(var(--space-xl-3xl) * 4); 
-  flex-grow: 1;
+.article-body .sidebar {
+  --sidebar-side_minwidth: calc(var(--space-xl-3xl) * 4); 
 }
 
-.article-body > :first-child {
-  flex-basis: 0;
-  flex-grow: 999;
-  min-inline-size: 63.6%;
+.article-body .not-sidebar {
+  --sidebar-notside_minwidth: 63.6%;
 }
 
 
@@ -332,33 +362,22 @@ h3 {
 	margin-block-end: var(--space-m);
 }
 
-.list-cards {
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space-s);
-}
-
 .card {
-	flex-basis: calc(var(--space-s)*18); 
-	flex-grow: 1;
 	border-top: 1px solid #000;
 	padding-block-start: var(--space-m);
 	margin-block-start: var(--space-2xs);
 	font-size: var(--step--1);
 	line-height: 1.375;
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space-s);
+	--sidebar-gap: var(--space-s);
 }
 
-.card figure {
-	flex-basis: 33.333%;
-	flex-grow: 1;
+.card .sidebar { /* image */
+	--sidebar-side_minwidth: 33.3%;
+	max-inline-size: 160px;
 }
 
-.card div {
-	flex-basis: 0;
-	flex-grow: 999;
+.card .not-sidebar {
+	--sidebar-notside_minwidth: calc(var(--step-0) * 7);
 }
 
 .card h4 {

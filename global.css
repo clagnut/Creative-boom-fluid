@@ -186,7 +186,7 @@ body {
 	-moz-osx-font-smoothing:grayscale;
 }
 
-.masthead, .article-header, .article-body, .further-reading, .newsletter {
+.masthead, .article-header, .article-body, .further-reading > *, .newsletter > * {
 	max-width: calc(var(--step-0) * 77);
 	padding-inline: var(--space-xs-2xl);
 	margin-inline: auto;
@@ -466,9 +466,12 @@ h3 {
 .newsletter {
 	background: #000;
 	color: #fff;
+}
+
+.newsletter form {
 	align-items: center;
 	padding-block: var(--space-xl);
-	--grid-gap: var(--space-xl);
+	--grid-gap: var(--space-xl);	
 }
 
 .newsletter figure {

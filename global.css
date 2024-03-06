@@ -50,12 +50,16 @@ body {
   text-wrap: pretty;
 }
 
-img {
+img, video, svg {
 	max-width: 100%;
 }
 
 a {
 	color: inherit;
+}
+
+input {
+	font-family: inherit;
 }
 
 /* @end */
@@ -83,6 +87,7 @@ a {
   --space-xs: clamp(0.8125rem, 0.7796rem + 0.1645vi, 0.9375rem);
   --space-s: clamp(1.0625rem, 1.0132rem + 0.2467vi, 1.25rem);
   --space-m: clamp(1.625rem, 1.5592rem + 0.3289vi, 1.875rem);
+  --space-l: clamp(2.125rem, 2.0263rem + 0.4934vi, 2.5rem);
   --space-xl: clamp(3.1875rem, 3.0395rem + 0.7401vi, 3.75rem);
 
   /* One-up pairs */
@@ -141,7 +146,7 @@ a {
   flex-grow: 999;
   min-inline-size: var(--sidebar-notside_minwidth);
 }
-
+/*
 .grid {
   --grid-gap: var(--space-s);
   display: flex;
@@ -153,6 +158,21 @@ a {
   --grid-width: calc(var(--step-0) * 15);
   flex: 1 1 var(--grid-width);
 }
+*/
+
+.grid {
+  --grid-gap: var(--space-m);
+  display: grid;
+  grid-gap: var(--grid-gap);
+}
+
+@supports (width: min(250px, 100%)) {
+  .grid {
+  	--grid-minwidth: calc(var(--step-0) * 14);
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--grid-minwidth), 100%), 1fr));
+  }
+}
+  
 
 /* @end */
 
@@ -166,7 +186,7 @@ body {
 	-moz-osx-font-smoothing:grayscale;
 }
 
-.masthead, .article-header, .article-body {
+.masthead, .article-header, .article-body, .further-reading, .newsletter {
 	max-width: calc(var(--step-0) * 77);
 	padding-inline: var(--space-xs-2xl);
 	margin-inline: auto;
@@ -254,25 +274,7 @@ article header {
 	padding-block: var(--space-m);
 }
 
-.tags {
-	display: flex;
-	text-transform:uppercase;
-	font-size: var(--step--2);
-	font-weight: bold;	
-}
 
-.tags li {
-	border:1px solid #000;
-	border-radius: 1em;
-	line-height: 1;
-	padding-inline: var(--space-2xs);
-	padding-block-start: 0.65em;
-	padding-block-end: 0.6em;
-}
-
-.tags li + li {
-	margin-inline-start: var(--space-2xs);
-}
 
 h1, h2, h3, h4 {
 	font-family: "Roobert", ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -300,6 +302,30 @@ date {
 	display: block;
 	font-size: var(--step--1);	
 	margin-block-end: var(--space-xs);	
+}
+
+/* @end */
+
+/* @group Tags */
+
+.tags {
+	display: flex;
+	text-transform:uppercase;
+	font-size: var(--step--2);
+	font-weight: bold;	
+}
+
+.tags li {
+	border:1px solid #000;
+	border-radius: 1em;
+	line-height: 1;
+	padding-inline: var(--space-2xs);
+	padding-block-start: 0.65em;
+	padding-block-end: 0.55em;
+}
+
+.tags li + li {
+	margin-inline-start: var(--space-2xs);
 }
 
 /* @end */
@@ -351,6 +377,33 @@ hr {
 
 /* @end */
 
+/* @group share */
+
+.share {
+	margin-block-start: var(--space-xl);
+	border-top:1px solid #000;
+	border-bottom:1px solid #000;
+	padding-block: var(--space-xl);
+}
+
+.share ul {
+	display: flex;
+	gap: var(--space-xs);
+}
+
+.share li {
+	border:1px solid #000;
+	border-radius: 50%;
+	width: 3em;
+	height: 3em;
+}
+
+.share svg {
+	vertical-align:middle;
+}
+
+/* @end */
+
 /* @group aside (editors picks) */
 
 aside {
@@ -362,10 +415,13 @@ h3 {
 	margin-block-end: var(--space-m);
 }
 
+.cards {
+	margin-block-end: var(--space-m);
+}
+
 .card {
 	border-top: 1px solid #000;
 	padding-block-start: var(--space-m);
-	margin-block-start: var(--space-2xs);
 	font-size: var(--step--1);
 	line-height: 1.375;
 	--sidebar-gap: var(--space-s);
@@ -385,3 +441,65 @@ h3 {
 }
 
 /* @end */
+
+/* @group Further reading */
+
+.further-reading {
+	background: rgb(251, 247, 239);
+	color: #000;
+	padding-block-start: var(--space-m);
+	padding-block-end: var(--space-xl);
+	position:relative;
+	top: -1px;
+}
+
+.further-reading h1 {
+	margin-block-end: var(--space-l);
+}
+
+.further-reading .tags {
+	margin-block: var(--space-2xs);
+}
+
+/* @end */
+
+.newsletter {
+	background: #000;
+	color: #fff;
+	align-items: center;
+	padding-block: var(--space-xl);
+	--grid-gap: var(--space-xl);
+}
+
+.newsletter figure {
+	background: rgb(251, 247, 239);
+	color: #000;
+	line-height:1;
+}
+
+.newsletter h2 {
+	max-width: 23ch;
+}
+
+.newsletter div.input {
+	border-bottom:1px solid #fff;
+	display: flex;
+	justify-content: space-between;
+}
+
+.newsletter input, .newsletter button {
+	background: inherit;
+	color: inherit;
+	font-size: var(--step-4);
+	border: none;
+}
+
+.newsletter input {
+	width: calc(100% - 1.25em);
+}
+
+.newsletter button {
+	width: 1em;
+	height: 1em;
+	cursor: pointer;
+}
